@@ -90,6 +90,10 @@ var defaultTheme = {
 // Create a context for the theme
 var ThemeContext = React.createContext(defaultTheme);
 var useTheme = function () { return React.useContext(ThemeContext); };
+var ThemeProvider = function (_a) {
+    var children = _a.children, theme = _a.theme;
+    return (React.createElement(ThemeContext.Provider, { value: theme }, children));
+};
 
 var Button = function (_a) {
     var label = _a.label, type = _a.type, size = _a.size;
@@ -129,5 +133,6 @@ var Button = function (_a) {
 };
 
 exports.Button = Button;
+exports.ThemeProvider = ThemeProvider;
 exports.useTheme = useTheme;
 //# sourceMappingURL=index.js.map

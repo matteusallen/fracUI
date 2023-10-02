@@ -6,12 +6,10 @@ import defaultTheme from "../../themes";
 const ThemeContext = createContext<ThemeOptions>(defaultTheme);
 export const useTheme = () => useContext(ThemeContext)
 
-const ThemeProvider = ({ children, theme }: { children: React.ReactNode, theme: ThemeOptions }) => {
+export const ThemeProvider = ({ children, theme }: { children: React.ReactNode, theme: ThemeOptions }) => {
   return (
     <ThemeContext.Provider value={theme}>
       {children}
     </ThemeContext.Provider>
   );
 };
-
-export default ThemeProvider;

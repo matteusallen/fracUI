@@ -1,0 +1,19 @@
+# Ignore Node.js build and dependency directories
+/node_modules
+
+# Ignore npm log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore editor-specific files
+.vscode/
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+
+# Ignore OS-generated files
+.DS_Store
+Thumbs.db

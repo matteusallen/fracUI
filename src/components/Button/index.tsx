@@ -7,7 +7,7 @@ export const Button = ({
     type,
     size
 }: {
-    label: React.ReactNode,
+    label: string,
     type: string,
     size: string
 }) => {

@@ -3,7 +3,7 @@ import type { StoryObj } from '@storybook/react';
 declare const meta: {
     title: string;
     component: ({ label, type, size }: {
-        label: import("react").ReactNode;
+        label: string;
         type: string;
         size: string;
     }) => import("react").JSX.Element;

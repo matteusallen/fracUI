@@ -88,6 +88,10 @@ var defaultTheme = {
 // Create a context for the theme
 var ThemeContext = createContext(defaultTheme);
 var useTheme = function () { return useContext(ThemeContext); };
+var ThemeProvider = function (_a) {
+    var children = _a.children, theme = _a.theme;
+    return (React.createElement(ThemeContext.Provider, { value: theme }, children));
+};
 
 var Button = function (_a) {
     var label = _a.label, type = _a.type, size = _a.size;
@@ -126,5 +130,5 @@ var Button = function (_a) {
     return (React.createElement("button", { type: "button", style: buttonStyles(theme, type, size), onMouseEnter: function () { return setHover(true); }, onMouseLeave: function () { return setHover(false); } }, label));
 };
 
-export { Button, useTheme };
+export { Button, ThemeProvider, useTheme };
 //# sourceMappingURL=index.js.map
