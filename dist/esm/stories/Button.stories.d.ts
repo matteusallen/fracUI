@@ -2,10 +2,10 @@
 import type { StoryObj } from '@storybook/react';
 declare const meta: {
     title: string;
-    component: ({ label, type, size }: {
+    component: ({ label, btnType, size }: {
         label: string;
-        type: string;
-        size: string;
+        btnType?: ("primary" | "secondary") | undefined;
+        size?: ("small" | "medium" | "large") | undefined;
     }) => import("react").JSX.Element;
     parameters: {
         layout: string;

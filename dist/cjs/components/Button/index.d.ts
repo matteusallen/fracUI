@@ -1,6 +1,10 @@
 import React from "react";
-export declare const Button: ({ label, type, size }: {
+type ButtonSizes = 'small' | 'medium' | 'large';
+type ButtonTypes = "primary" | "secondary";
+type Button = {
     label: string;
-    type: string;
-    size: string;
-}) => React.JSX.Element;
+    btnType?: ButtonTypes;
+    size?: ButtonSizes;
+};
+export declare const Button: ({ label, btnType, size }: Button) => React.JSX.Element;
+export {};

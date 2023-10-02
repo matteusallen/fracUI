@@ -91,18 +91,16 @@ var defaultTheme = {
 var ThemeContext = React.createContext(defaultTheme);
 var useTheme = function () { return React.useContext(ThemeContext); };
 var ThemeProvider = function (_a) {
-    var children = _a.children, theme = _a.theme;
+    var children = _a.children, _b = _a.theme, theme = _b === void 0 ? defaultTheme : _b;
     return (React.createElement(ThemeContext.Provider, { value: theme }, children));
 };
 
 var Button = function (_a) {
-    var label = _a.label, type = _a.type, size = _a.size;
+    var label = _a.label, btnType = _a.btnType, size = _a.size;
     var theme = useTheme();
     var _b = React.useState(false), hover = _b[0], setHover = _b[1];
-    var buttonStyles = function (theme, type, size) {
+    var buttonStyles = function (theme, btnType, size) {
         var _a, _b, _c, _d, _e, _f, _g, _h, _j, _k, _l, _m, _o, _p;
-        if (type === void 0) { type = 'primary'; }
-        if (size === void 0) { size = 'medium'; }
         var smallStyles = {
             minHeight: '40px',
             fontSize: '14px'
@@ -126,10 +124,10 @@ var Button = function (_a) {
         var hoverStyles = {
             opacity: (_k = (_j = theme.palette) === null || _j === void 0 ? void 0 : _j.action) === null || _k === void 0 ? void 0 : _k.hoverOpacity,
         };
-        var styles = __assign(__assign(__assign(__assign(__assign(__assign({ padding: theme.spacing && "0 ".concat(theme.spacing(2), "px"), border: 'none', cursor: 'pointer', fontFamily: (_l = theme.typography) === null || _l === void 0 ? void 0 : _l.fontFamily, transition: "all ".concat((_o = (_m = theme.transitions) === null || _m === void 0 ? void 0 : _m.duration) === null || _o === void 0 ? void 0 : _o.standard, "ms ").concat((_p = theme.transitions) === null || _p === void 0 ? void 0 : _p.easing) }, type === 'primary' && primaryStyles), type === 'secondary' && secondaryStyles), size === 'small' && smallStyles), size === 'medium' && mediumStyles), size === 'large' && largeStyles), hover && hoverStyles);
+        var styles = __assign(__assign(__assign(__assign(__assign(__assign({ padding: theme.spacing && "0 ".concat(theme.spacing(2), "px"), border: 'none', cursor: 'pointer', fontFamily: (_l = theme.typography) === null || _l === void 0 ? void 0 : _l.fontFamily, transition: "all ".concat((_o = (_m = theme.transitions) === null || _m === void 0 ? void 0 : _m.duration) === null || _o === void 0 ? void 0 : _o.standard, "ms ").concat((_p = theme.transitions) === null || _p === void 0 ? void 0 : _p.easing) }, (!btnType || btnType === 'primary') && primaryStyles), btnType === 'secondary' && secondaryStyles), size === 'small' && smallStyles), (!size || size === 'medium') && mediumStyles), size === 'large' && largeStyles), hover && hoverStyles);
         return styles;
     };
-    return (React.createElement("button", { type: "button", style: buttonStyles(theme, type, size), onMouseEnter: function () { return setHover(true); }, onMouseLeave: function () { return setHover(false); } }, label));
+    return (React.createElement("button", { style: buttonStyles(theme, btnType, size), onMouseEnter: function () { return setHover(true); }, onMouseLeave: function () { return setHover(false); } }, label));
 };
 
 exports.Button = Button;

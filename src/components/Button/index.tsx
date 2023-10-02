@@ -2,18 +2,22 @@ import React, { useState } from "react"
 import { useTheme } from '../ThemeProvider';
 import ThemeOptions from "../../types/theme.interface";
 
+type ButtonSizes = 'small'| 'medium' | 'large'
+type ButtonTypes = "primary" | "secondary"
+type Button = {
+    label: string,
+    btnType?: ButtonTypes,
+    size?: ButtonSizes
+}
+
 export const Button = ({
     label,
-    type,
+    btnType,
     size
-}: {
-    label: string,
-    type: string,
-    size: string
-}) => {
+}: Button) => {
     const theme = useTheme();
     const [hover, setHover] = useState(false);
-    const buttonStyles = (theme: ThemeOptions, type?: string, size?: string) => {
+    const buttonStyles = (theme: ThemeOptions, btnType?: ButtonTypes, size?: ButtonSizes) => {
         const smallStyles = {
             minHeight: '40px',
             fontSize: '14px'
@@ -44,10 +48,10 @@ export const Button = ({
             cursor: 'pointer',
             fontFamily: theme.typography?.fontFamily,
             transition: `all ${theme.transitions?.duration?.standard}ms ${theme.transitions?.easing}`,
-            ...type === 'primary' && primaryStyles,
-            ...type === 'secondary' && secondaryStyles,
+            ...(!btnType || btnType === 'primary') && primaryStyles,
+            ...btnType === 'secondary' && secondaryStyles,
             ...size === 'small' && smallStyles,
-            ...size === 'medium' && mediumStyles,
+            ...(!size || size === 'medium') && mediumStyles,
             ...size === 'large' && largeStyles,
             ...hover && hoverStyles 
         };
@@ -56,7 +60,7 @@ export const Button = ({
     }
 
     return (
-    <button type="button" style={buttonStyles(theme, type, size)} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <button style={buttonStyles(theme, btnType, size)} onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
         {label}
     </button>)
 }

@@ -3,5 +3,5 @@ import ThemeOptions from "../../types/theme.interface";
 export declare const useTheme: () => ThemeOptions;
 export declare const ThemeProvider: ({ children, theme }: {
     children: React.ReactNode;
-    theme: ThemeOptions;
+    theme?: ThemeOptions | undefined;
 }) => React.JSX.Element;

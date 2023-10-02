@@ -1,10 +1,13 @@
 import React from 'react';
 
-declare const Button: ({ label, type, size }: {
+type ButtonSizes = 'small' | 'medium' | 'large';
+type ButtonTypes = "primary" | "secondary";
+type Button = {
     label: string;
-    type: string;
-    size: string;
-}) => React.JSX.Element;
+    btnType?: ButtonTypes;
+    size?: ButtonSizes;
+};
+declare const Button: ({ label, btnType, size }: Button) => React.JSX.Element;
 
 type ThemeOptions = {
     palette?: PaletteOptions;
@@ -21,7 +24,7 @@ type ThemeOptions = {
 declare const useTheme: () => ThemeOptions;
 declare const ThemeProvider: ({ children, theme }: {
     children: React.ReactNode;
-    theme: ThemeOptions;
+    theme?: ThemeOptions | undefined;
 }) => React.JSX.Element;
 
 export { Button, ThemeProvider, useTheme };
