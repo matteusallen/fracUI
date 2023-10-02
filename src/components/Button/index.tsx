@@ -13,7 +13,7 @@ export const Button = ({
 }) => {
     const theme = useTheme();
     const [hover, setHover] = useState(false);
-    const buttonStyles = (theme: ThemeOptions, type: string = 'primary', size: string = 'medium') => {
+    const buttonStyles = (theme: ThemeOptions, type?: string, size?: string) => {
         const smallStyles = {
             minHeight: '40px',
             fontSize: '14px'
