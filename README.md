@@ -6,20 +6,11 @@ This README provides instructions on how to use the `ThemeProvider` component fo
 
 ## Table of Contents
 
-- [Installation](#installation)
 - [Usage](#usage)
   - [ThemeProvider](#themeprovider)
   - [Button](#button)
 - [Example](#example)
-
-## Installation
-
-To use fracUI in your React application, you can install it via npm or yarn:
-
-```bash
-npm install @matteusallen/fracui
-# or
-yarn add @matteusallen/fracui
+  
 ```
 ## Usage
 The ThemeProvider component allows you to provide a theme for your application. It uses the React Context API to make the theme accessible to child components. 
