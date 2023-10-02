@@ -11,7 +11,6 @@ This README provides instructions on how to use the `ThemeProvider` component fo
   - [Button](#button)
 - [Example](#example)
   
-```
 ## Usage
 The ThemeProvider component allows you to provide a theme for your application. It uses the React Context API to make the theme accessible to child components. 
 Wrap your application with the ThemeProvider component at the top level and pass a theme object as a prop.
